@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	
+  <head></head>
+  <body>
+    <h1>Results Page </h1>
+    <br><hr>
+	  <% test = YelpController.new %>
+	  <% results = test.yelp_search(params['place'], params['location']) %>
+	  
+	<div id="results">
+		<% for i in 0..9 do %>  
+			<a href = <%= results.businesses[i].url %>> <%= results.businesses[i].name %> </a> <br>
+			<img src = <%= results.businesses[i].image_url %> > <br> 
+			<img src = <%= results.businesses[i].rating_img_url %>> 
+			<%= results.businesses[i].review_count %> reviews <br> 
+			<%= addresses = results.businesses[i].location.address[i] %> <br>
+			<%= results.businesses[i].location.city %>
+			<%= results.businesses[i].location.state_code %>,
+ 	        <%= results.businesses[i].location.postal_code %> <br><br>
+ 	        <%= results.businesses[i].snippet_text %> <br><br> 
+ 	        Yelp ID: <%= yelp = results.businesses[i].id %> <br><br>
+  <br><br>
+		<% end %>
+		
+	</div>
+		
+  </body>
+	
+</html>

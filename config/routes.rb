@@ -1,6 +1,8 @@
 Jaunt::Application.routes.draw do
-  resources :trips
-
+  resources :trip
+  get 'trips/itinerary', to: 'trips#itinerary'
+  get 'yelp/search', to: 'yelp#search'
+  get 'yelp/result', to: 'yelp#result'
   root 'welcome#index' 
   
   

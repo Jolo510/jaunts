@@ -1,11 +1,13 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-  	<body>
-  	  <br><br><br>
-	  Hello World!
-	  <br>
-	  <%= link_to "Trips", trips_path %>
-  	</body>
+  	
   </head>
+  <body>
+	  <h1>Welcome to Jaunts!</h1>
+	  <% cookie = TripsController.new %> <br>
+	  <div>
+	    <%= link_to "Create Jaunt", trips_itinerary_url %>
+	  </div>
+  	</body>
 </html>

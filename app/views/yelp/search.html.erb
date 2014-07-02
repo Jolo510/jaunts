@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+	
+  <head></head>
+  <body>
+    <h1>Search Page </h1>
+    <br><hr>
+    <%= form_tag("/yelp/result", method: "get") do %>
+	  <%= label_tag(:place, "Search") %>
+	  <%= text_field_tag(:place,) %>
+	  <%= label_tag(:location, "Location") %>
+	  <%= text_field_tag(:location,) %>
+	  <%= submit_tag ("Search") %>
+    <% end %> 	
+		
+  </body>
+	
+</html>

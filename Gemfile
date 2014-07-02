@@ -9,6 +9,9 @@ gem 'pg'
 # Use rspec
 gem 'rspec-rails' 
 
+# Use yelp
+gem 'yelp', '~>2.0.1' 
+
 # Use rails_12factor
 gem 'rails_12factor', group: :production 
 
