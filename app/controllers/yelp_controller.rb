@@ -17,6 +17,4 @@ class YelpController < ApplicationController
     redirect_to trips_itinerary_path
   end
   
-  
-  
 end

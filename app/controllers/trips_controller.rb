@@ -20,6 +20,11 @@ class TripsController < ApplicationController
   # GET /trips/1/edit
   def edit
   end
+  
+  # Splitting the Cookies 
+  def display_results
+    yelp_id = session[:yelp].split(",")
+  end
 
   # POST /trips
   # POST /trips.json
