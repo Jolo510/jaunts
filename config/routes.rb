@@ -3,6 +3,7 @@ Jaunt::Application.routes.draw do
   get 'trips/itinerary', to: 'trips#itinerary'
   get 'yelp/search', to: 'yelp#search'
   get 'yelp/result', to: 'yelp#result'
+  post 'yelp/set_cookie', to: 'yelp#set_cookie'
   root 'welcome#index' 
   
   
