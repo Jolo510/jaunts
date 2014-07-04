@@ -21,6 +21,11 @@ class TripsController < ApplicationController
   def edit
   end
   
+  # Saved Trips 
+  def saved_trips
+    @trips = Trip.all 
+  end
+  
   # Save Action 
   def save 
     Trip.create :name => params[:trip_name], :description => params[:trip_description], 
