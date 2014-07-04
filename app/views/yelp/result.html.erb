@@ -21,6 +21,7 @@
  	        <%= results.businesses[i].snippet_text %> <br><br> 
  	        Yelp ID: <%= yelp = results.businesses[i].id %> <br><br>
  	        <%= button_to "Add to Trip", yelp_set_cookie_path(yelp_id: yelp) %>
+ 	        <br><br> 
 			
 		<% end %>
 		

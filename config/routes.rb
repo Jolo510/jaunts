@@ -4,7 +4,8 @@ Jaunt::Application.routes.draw do
   get 'yelp/search', to: 'yelp#search'
   get 'yelp/result', to: 'yelp#result'
   post 'yelp/set_cookie', to: 'yelp#set_cookie'
-  root 'welcome#index' 
+  post 'trips/save', to: 'trips#save'
+  root 'welcome#index'
   
   
   # The priority is based upon order of creation: first created -> highest priority.

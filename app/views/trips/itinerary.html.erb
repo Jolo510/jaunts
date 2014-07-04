@@ -28,12 +28,12 @@
 		<%= link_to "Add a place", yelp_search_path %>
 		<br><br><br>
 		
-		<%= form_tag("/trips/create", method: "post") do %>
+		<%= form_tag("/trips/save", method: "post") do %>
 	  	  <%= label_tag(:trip_name, "Name of Trip") %>
 	  	  <%= text_field_tag(:trip_name,) %>
 	  	  <%= label_tag(:trip_description, "Description") %>
 	  	  <%= text_field_tag(:trip_description,) %>
-	  	  <%= submit_tag ("Search") %>
+	  	  <%= submit_tag ("Save ") %>
     	<% end %> 	
 
 	</body>	

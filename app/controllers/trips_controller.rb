@@ -21,6 +21,14 @@ class TripsController < ApplicationController
   def edit
   end
   
+  # Save Action 
+  def save 
+    Trip.create :name => params[:trip_name], :description => params[:trip_description], 
+                :json => session[:yelp], :user_id => session.id
+    session[:yelp] = nil
+    redirect_to root_path
+  end
+  
   # Splitting the Cookies 
   def display_results
     yelp_id = session[:yelp].split(",")
