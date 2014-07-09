@@ -2,7 +2,7 @@ Jaunt::Application.routes.draw do
   
   get 'trips/itinerary', to: 'trips#itinerary'
   get 'trips/saved_trips', to: 'trips#saved_trips'
-  resources :trips
+  post 'trips/delete', to: 'trips#delete' 
   get 'yelp/search', to: 'yelp#search'
   get 'yelp/result', to: 'yelp#result'
   post 'yelp/set_cookie', to: 'yelp#set_cookie'

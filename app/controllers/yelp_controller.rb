@@ -12,9 +12,11 @@ class YelpController < ApplicationController
     if session[:yelp] == nil
       session[:yelp] = params[:yelp_id]
     else 
-      session[:yelp] += ", " + params[:yelp_id]
+      session[:yelp] += "," + params[:yelp_id]
     end 
+    
     redirect_to trips_itinerary_path
-  end
-  
-end
+    end 
+
+end 
+    
