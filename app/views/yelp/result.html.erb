@@ -8,21 +8,32 @@
 	  <% test = YelpController.new %>
 	  <% results = test.yelp_search(params['place'], params['location']) %>
 	  
-	<div id="results">
-		<% for i in 0..9 do %>  
-			<a href = <%= results.businesses[i].url %>> <%= results.businesses[i].name %> </a> <br>
-			<img src = <%= results.businesses[i].image_url %> > <br> 
-			<img src = <%= results.businesses[i].rating_img_url %>> 
-			<%= results.businesses[i].review_count %> reviews <br> 
-			<%= addresses = results.businesses[i].location.address[i] %> <br>
-			<%= results.businesses[i].location.city %>
-			<%= results.businesses[i].location.state_code %>,
- 	        <%= results.businesses[i].location.postal_code %> <br><br>
- 	        <%= results.businesses[i].snippet_text %> <br><br> 
- 	        Yelp ID: <%= yelp = results.businesses[i].id %> <br><br>
- 	        <%= button_to "Add to Trip", yelp_set_cookie_path(yelp_id: yelp) %>
- 	        <br><br> 
-			
+	<div id="results" style="padding-right: 50px;padding-left: 50px;">
+		<% for i in 0..9 do %> 
+			<div class="row">
+				<div class="col-sm-6 col-md-4">
+					<div class="thumbnail">
+					  <h3>
+					    <a href = <%= results.businesses[i].url %>> <%= results.businesses[i].name %> </a>
+					  </h3>
+					  <div>
+					  	<img src = <%= results.businesses[i].rating_img_url %>> 
+							<%= results.businesses[i].review_count %> reviews <br>
+					  </div>
+					  <br>
+					  <img src = <%= results.businesses[i].image_url %> style="width:300px;height:300px;">
+					    <div class="caption">
+							<%= addresses = results.businesses[i].location.address[i] %> <br>
+							<%= results.businesses[i].location.city %>
+							<%= results.businesses[i].location.state_code %>,
+ 	        				<%= results.businesses[i].location.postal_code %> <br><br>
+ 	        				<%= results.businesses[i].snippet_text %> <br><br> 
+							<% yelp = results.businesses[i].id %> <br><br>
+ 	        			    <%= button_to "Add to Trip", yelp_set_cookie_path(yelp_id: yelp) %>
+						</div>
+					</div>
+				</div>
+			</div>
 		<% end %>
 		
 	</div>

@@ -5,14 +5,20 @@
   </head>
   <body>
     <h1>Your Saved Trips</h1>
+    <% none = 0 %>
     <% @trips.each do |trip| %>
 	  <tr> 
 	    <% if trip.user_id == session.id %>
 	      Title : <td><%= trip.name %></td><br>
 	      Description : <td><%= trip.description %></td><br>
 	      Places : <td><%= trip.json %></td><br><br><br>
+	    <% else %>
+	      <% none += 1 %>
 	    <% end %>
-	  </tr>	
+	  </tr>
+	<% end %>
+	<% if none == 0 %>
+	  <p>There aren't any saved trips.</p>
 	<% end %>
   </body>
 </html>

@@ -37,12 +37,12 @@ class TripsController < ApplicationController
   # Delete place from Trip 
   def delete 
     trip = session[:yelp]
-    session[:yelp] = "" 
+    session[:yelp] = nil
     trip = trip.split(",") 
     trip.delete_at(params[:count].to_i)
     trip.each do |trips|
-      if session[:yelp] == ""
-        session[:yelp] += trips
+      if session[:yelp] == nil
+        session[:yelp] = trips
       else 
         session[:yelp] += "," + trips 
       end

@@ -4,11 +4,21 @@
   	
   </head>
   <body>
-	  <h1>Welcome to Jaunts!</h1>
-	  <div>
-	    <%= link_to "Create Jaunt", trips_itinerary_path %> <br><br>
-	    <%= link_to "Saved Jaunts", trips_saved_trips_path %>
+	  <div class="jumbotron">
+	  	<h1>Jaunts!</h1>
+	  	<p>- A brief trip taken for pleasure</p>
 	  </div>
-
+	  
+	  <div class="page-header">
+	  	<h1>Discover the city</h1>
+	  </div>
+	  
+	  <div class="display">
+	    <% test = TripsController.new %>
+	    <% holder = test.index %>
+	    <% holder.each do |trip| %>
+	      <%= trip.name %> <br> 
+	    <% end %>
+	  </div>
   	</body>
 </html>

@@ -1,7 +1,13 @@
 <div class="container">
   <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-    <%= link_to root_path, class: "navbar-brand" do %>
-      <i class="glyphicon glyphicon-home"></i>
-    <% end %>
+  	<div class="container-fluid">
+      <%= link_to root_path, class: "navbar-brand" do %>
+        <i class="glyphicon glyphicon-home"></i>
+      <% end %>
+      <ul class="nav navbar-nav navbar-right">
+      	<li><%= link_to "Create a Jaunt", trips_itinerary_path %></li>
+      	<li><%= link_to "View Saved Jaunts", trips_saved_trips_path %></li>
+      </ul>
+    </div><!-- /.container-fluid -->
   </nav>
 </div>
