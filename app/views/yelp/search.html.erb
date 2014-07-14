@@ -7,9 +7,9 @@
     <br><hr>
     <%= form_tag("/yelp/result", method: "get") do %>
 	  <%= label_tag(:place, "Search") %>
-	  <%= text_field_tag(:place,) %>
+	  <%= text_field_tag(:place, nil,  required: true) %>
 	  <%= label_tag(:location, "Location") %>
-	  <%= text_field_tag(:location,) %>
+	  <%= text_field_tag(:location, nil,  required: true) %>
 	  <%= submit_tag ("Search") %>
     <% end %> 	
 		

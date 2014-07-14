@@ -5,6 +5,7 @@ Jaunt::Application.routes.draw do
   post 'trips/delete', to: 'trips#delete' 
   get 'yelp/search', to: 'yelp#search'
   get 'yelp/result', to: 'yelp#result'
+  get 'yelp/error', to: 'yelp#error' 
   post 'yelp/set_cookie', to: 'yelp#set_cookie'
   post 'trips/save', to: 'trips#save'
   root 'welcome#index'
