@@ -1,16 +1,14 @@
 <!DOCTYPE html>
 <html>
-	<head>
+  <head>
 		
-	</head>
+  </head>
 	
-	<body>
-		<h1>Current Trip </h1>
-		<br><hr>
-		
-		
-		<div id="display-body">
-		<b>The Places</b><br>
+  <body>
+    <h1>Current Trip </h1>
+      <br><hr>
+      <div id="display-body">
+      	<h3>Places</h3>
 		<% yelp_ids = session[:yelp] %>
 		<% if yelp_ids != nil %>
 		  <% yelp_ids = yelp_ids.split(",")%>
@@ -18,7 +16,7 @@
 		  <div class="row">
 		    <% yelp_ids.each do |yelp| %>
 			  <% yelp_object = Yelp.client.business(yelp) %>
-	            <div class="col-md-4">
+	            <div class="col-sm-6 col-md-4 col-lg-3">
 	              <div class="thumbnail">
 	          	    <div class="caption">
 	          	      <h3>
@@ -27,7 +25,7 @@
 				      <img src=<%= yelp_object.image_url %>>  <br>
 		              <img src=<%= yelp_object.rating_img_url %>> 
 		              <%= yelp_object.review_count %> 
-	          	    </div>
+	          	    </div> <!-- /.caption -->
 	          	    <div>
 	                  <%= yelp_object.location.address[0] %> <br>
 		              <%= yelp_object.location.city %>
@@ -35,34 +33,31 @@
 		    	      <%= yelp_object.location.postal_code %> <br><br> 
 		    	      <%= yelp_object.snippet_text %> <br><br> 
 		    	      <% params[:count] = count %>
-		    	      <%= button_to "Remove", trips_delete_path %> <br>
+		    	      <%= button_to "Remove", trips_delete_path, :class => "btn btn-default btn-sm" %> <br>
 		    	      <% count = count + 1 %>
-	                </div>
-	              </div>
-	            </div>      
+	               </div> 
+	              </div> <!-- /.thumbnail -->
+	            </div> <!-- /.col-md-4 -->
 		    <% end %> 
-		  </div>
+		  </div> <!-- /.row -->
 		<% end %> 
 		
-		<div class="row"> 
-		<%= button_to "Add a place", yelp_search_path, :method => :get  %>
-		<br>
-		<%= form_tag("/trips/save", method: "post") do %>
-	  	  <%= label_tag(:trip_name, "Name of Trip") %>
-	  	  <br>
-	  	  <%= text_field_tag(:trip_name,) %>
-	  	  <br>
-	  	  <%= label_tag(:trip_description, "Description") %>
-	  	  <br>
-	  	  <%= text_area_tag(:trip_description, "" , size: "60x5") %>
-	  	  <br><br>
-	  	  <%= submit_tag ("Save") %>
-	  	  
-    	<% end %> 	
+		<div class="row" style="padding-left:10px"> 
+		  <%= button_to "Add a place", yelp_search_path, :method => :get, :class => "btn btn-default btn-sm" %>
+		  <br>
+		  <%= form_tag("/trips/save", method: "post") do %>
+	  	    <%= label_tag(:trip_name, "Name of Trip") %>
+	  	    <br>
+	  	    <%= text_field_tag(:trip_name,) %>
+	  	    <br>
+	  	    <%= label_tag(:trip_description, "Description") %>
+	  	    <br>
+	  	    <%= text_area_tag(:trip_description, "" , size: "60x5") %>
+	  	    <br><br>
+	  	    <%= submit_tag ("Save"), :class => "btn btn-default btn-sm" %>
+    	  <% end %> 	
 		</div>
 		
-		</div>
-		
-		
+	  </div><!-- /.display_body -->
 	</body>	
 </html>
