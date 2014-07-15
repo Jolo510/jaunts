@@ -7,14 +7,22 @@
     <h1>Your Saved Trips</h1>
     <% none = 0 %>
     <% @trips.each do |trip| %>
-	  <tr> 
-	    <% if trip.user_id == session.id %>
-	      Title : <td><%= trip.name %></td><br>
-	      Description : <td><%= trip.description %></td><br>
-	      Places : <td><%= trip.json %></td><br><br><br>
-	      <% none += 1 %>
-	    <% end %>
-	  </tr>
+      <% if trip.user_id == session.id %>
+        <div class="col-sm-6 col-md-4 col-lg-4">
+      	  <div class="thumbnail">
+      	  	<div class="caption">
+      		  <h3><%= trip.name %></h3>
+			  <p><%= trip.description %></p>
+			  <% yelp = trip.json %>
+			  <% yelp = yelp.split(",") %>
+			  <% yelp.each do |yelp| %>
+			    <%= yelp %> <br>
+			  <% end %>
+      		</div>
+      	  </div>
+        </div>
+        <% none += 1 %>
+      <% end %>
 	<% end %>
 	
 	<% if none == 0 %>
@@ -23,3 +31,6 @@
   
   </body>
 </html>
+
+
+

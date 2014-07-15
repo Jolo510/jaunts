@@ -6,3 +6,29 @@ div.display, div.page-header {
   padding-right: 50px;
   padding-left: 50px;
 }
+
+.jumbotron {
+  padding-left: 200px; 
+  padding-right: 200px; 
+  background-image: url('NewYork.jpg');  
+  background-repeat: no-repeat; 
+  background-position: center; 
+  background-size: 100%; 
+  color: white; 
+}
+
+h1#title {
+  font-family: "Sans-serif";
+
+}
+
+#description {
+  font-family: "Sans-serif"; 
+  font-style: italic; 
+  font-size: 25px;
+  font-weight: bold;  
+}
+
+.display {
+  background-color: white; 
+}
