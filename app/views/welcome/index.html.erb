@@ -21,7 +21,7 @@
 
 	<div class="row">
 	  <% holder.each do |trip| %>
-	    <div class="col-xs-6 col-md-3" style="padding-left: 60px;padding-right: 60px;">
+	    <div class="col-xs-6 col-md-4" style="padding-left: 60px;padding-right: 60px;">
 	      <div class="thumbnail" style="height: 325px;">
 	      	<% trip_parse = trip.json.split(",") %>
 	      	<% yelp_image = Yelp.client.business(trip_parse[0]) %>

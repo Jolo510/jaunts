@@ -39,7 +39,7 @@ class TripsController < ApplicationController
     trip = session[:yelp]
     session[:yelp] = nil
     trip = trip.split(",") 
-    trip.delete_at(params[:count].to_i)
+    trip.delete_at(params[:counter].to_i)
     trip.each do |trips|
       if session[:yelp] == nil
         session[:yelp] = trips
