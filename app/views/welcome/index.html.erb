@@ -13,18 +13,35 @@
 	  
 	<div class="display">
 	  <h1>Discover the city you are in...</h1>
-	  <% test = TripsController.new %>
-	  <% holder = test.index %>
+	</div>
+	
+	<% test = TripsController.new %>
+	<% holder = test.index %>
+	<% yelp_object = YelpController.new %>
+
+	<div class="row">
 	  <% holder.each do |trip| %>
-	    <%= trip.name %> <br> 
-	    <%= trip.json %> <br>
-	    Well this is interesting <br> 
+	    <div class="col-xs-6 col-md-3" style="padding-left: 60px;padding-right: 60px;">
+	      <div class="thumbnail" style="height: 325px;">
+	      	<% trip_parse = trip.json.split(",") %>
+	      	<% yelp_image = Yelp.client.business(trip_parse[0]) %>
+	      	<%= image_tag(yelp_image.image_url) %>
+	        <!-- insert image here -->
+	        <div class="caption">
+	      	  <h4><%= trip.name %></h4>
+	      	  <p>Description <%= trip.description %></p>
+	      	  
+	      	  <h5>Places</h5>
+	      	  <% trip_parse.each do |split| %>
+	      	    <% yelpObj = Yelp.client.business(split) %>
+	      	    <%= yelpObj.name %> <br>
+	      	  <% end %>
+	      	  
+	        </div>
+	      </div>
+	  </div>
 	  <% end %>
 	</div>
-	  
-	<div>  	
-	</div>
-	
-	
+
   </body>
 </html>
