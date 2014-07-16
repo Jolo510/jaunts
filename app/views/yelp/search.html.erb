@@ -2,10 +2,23 @@
 <html>
 	
   <head></head>
+  
+  <script>
+  	@(docoment).ready(function() {
+  		$("#search-form").validate({
+  			debug:true,
+  			rules: {
+  				"search[place]": {required: true, place:true},
+  				"search[location]": {required: true, location:true}
+  			}
+  		});
+  	});
+  </script>
+  
   <body>
     <h1>Search Page </h1>
     <br><hr>
-    <%= form_tag("/yelp/result", method: "get") do %>
+    <%= form_tag("/yelp/result", method: "get", :id => "search-form") do %>
 	  <%= label_tag(:place, "Search") %>
 	  <%= text_field_tag(:place, nil,  required: true) %>
 	  <%= label_tag(:location, "Location") %>
@@ -16,3 +29,5 @@
   </body>
 	
 </html>
+
+

@@ -3,7 +3,18 @@
   <head>
 		
   </head>
-	
+  <script>
+			$(document).ready(function() {
+				$("#save-form").validate({
+					debug: true, 
+					rules: {
+						"save[trip_name]": {required: true, trip_name:true},
+						"Save[trip_description]": {required: true, trip_description:true}
+					}
+				});
+			});
+  </script>
+		
   <body>
     <h1>Current Trip </h1>
       <br><hr>
@@ -42,20 +53,23 @@
 		<% end %> 
 		
 		<div class="row" style="padding-left:10px"> 
-		  <%= button_to "Add a place", yelp_search_path, :method => :get, :class => "btn btn-default btn-sm" %>
+		  <%= button_to "Add a place", yelp_search_path, :method => :get, :id => "save-form", :class => "btn btn-default btn-sm" %>
 		  <br>
 		  <%= form_tag("/trips/save", method: "post") do %>
 	  	    <%= label_tag(:trip_name, "Name of Trip") %>
 	  	    <br>
-	  	    <%= text_field_tag(:trip_name,) %>
+	  	    <%= text_field_tag(:trip_name, nil,required:true) %>
 	  	    <br>
 	  	    <%= label_tag(:trip_description, "Description") %>
 	  	    <br>
-	  	    <%= text_area_tag(:trip_description, "" , size: "60x5") %>
+	  	    <%= text_area_tag(:trip_description, "" , size: "60x5", required:true) %>
 	  	    <br><br>
 	  	    <%= submit_tag ("Save"), :class => "btn btn-default btn-sm" %>
     	  <% end %> 	
 		</div>
+		
+		
+		
 		
 	  </div><!-- /.display_body -->
 	</body>	
