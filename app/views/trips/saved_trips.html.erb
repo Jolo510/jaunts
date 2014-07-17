@@ -4,6 +4,8 @@
   	
   </head>
   <body>
+  	<!-- Rendering the navigation bar -->
+  	<%= render partial: 'layouts/navbar' %>
     <h1>Your Saved Trips</h1>
     <% none = 0 %>
     <% @trips.each do |trip| %>
