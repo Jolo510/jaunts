@@ -1,44 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-  	
+  	<link href='http://fonts.googleapis.com/css?family=Press+Start+2P' rel='stylesheet' type='text/css'>
   </head>
- 
-  <body>
-  	<div class="jumbotron">
-	  <h1 id="title">Jaunts are</h1>
-	  <p id="description">A brief trip taken for pleasure</p>
-	  <br><br><br> 
-	</div>
-	  
-	<div class="display">
-	  <h1>Discover the city you are in...</h1>
-	</div>
-	
-	<% test = TripsController.new %>
-	<% holder = test.index %>
-
-
-	<div class="row">
-	  <% holder.each do |trip| %>
-	    <div class="col-xs-6 col-md-4 col-lg-3" style="padding-left: 60px;padding-right: 60px;">
-	      <div class="thumbnail" style="height: 325px;">
-
-	        <!-- insert image here -->
-	        <%= image_tag('NoImage.jpg', size: "150x150") %>
-	        <div class="caption">
-			  <h5><%= trip.name %></h5> 
-	        </div>
-	        <div class="description">
-	        	<%= trip.description %>
-	        </div>
-	        <div class="places">
-	        	
-	        </div>
-	      </div>
-	  </div>
-	  <% end %>
-	</div>
-
+  <body class="homepage">
+  	<div class="top">
+  		<div class="logo">
+  			<h1 id="logo2">JAUNTS </h1>
+  			<p id="logo-body">A brief trip taken for pleasure</p>
+  		</div>
+  	</div>
+  	<div class="center">
+  		<%= link_to image_tag("Create a Jaunt.jpg", size: "250"), trips_itinerary_path %>    
+	    <%= link_to image_tag("View Saved Jaunts.jpg", size: "250"), trips_saved_trips_path %>   
+	    
+  	</div>
   </body>
 </html>

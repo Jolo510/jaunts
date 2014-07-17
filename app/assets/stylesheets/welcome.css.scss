@@ -2,42 +2,41 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-div.display, div.page-header {
-  padding-right: 50px;
-  padding-left: 50px;
+.homepage{
+  background-color: #00628B;
+
 }
 
-.jumbotron {
-  padding-left: 200px; 
-  padding-right: 200px; 
-  background-image: url('NewYork.jpg');  
-  background-repeat: no-repeat; 
-  background-position: center; 
-  background-size: 100%; 
+.top {
+
+  top: 60px; 
+  padding-left: 200px;  
+}
+
+.logo {
   color: white; 
 }
 
-h1#title {
-  font-family: "Sans-serif";
-
+#logo2{
+   font-family: 'Press Start 2P', cursive;
+   font-size: 350%;
 }
 
-#description {
-  font-family: "Sans-serif"; 
-  font-style: italic; 
-  font-size: 25px; 
+#logo-body{
+  padding-left: 50px; 
+  font-family: 'Press Start 2P', cursive;
+  font-size: 100%;
 }
 
-.description {
-  font-family: "Sans-serif"; 
-  font-size: 12px; 
+.center {
+  position: absolute; 
+  top: 50%;
+  left: 50%;
+  margin-top: -150px;
+  margin-left: -300px;
 }
 
-.display {
-  background-color: white; 
-}
-
-.thumbnail {
-  height: 450px; 
-  width: 300px; 
+img{
+  margin-left: 25px; 
+  margin-right: 25px; 
 }
