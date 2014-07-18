@@ -57,19 +57,50 @@
 		<div class="row" style="padding-left:10px"> 
 		  <%= button_to "Add a place", yelp_search_path, :method => :get, :id => "save-form", :class => "btn btn-default btn-sm" %>
 		  <br>
-		  <%= form_tag("/trips/save", method: "post") do %>
-	  	    <%= label_tag(:trip_name, "Name of Trip") %>
-	  	    <br>
-	  	    <%= text_field_tag(:trip_name, nil,required:true) %>
-	  	    <br>
-	  	    <%= label_tag(:trip_description, "Description") %>
-	  	    <br>
-	  	    <%= text_area_tag(:trip_description, "" , size: "60x5", required:true) %>
-	  	    <br><br>
-	  	    <%= submit_tag ("Save"), :class => "btn btn-default btn-sm", :id => "cool-button" %>
-    	  <% end %> 	
+		   	
 		</div>
 		
+		<!-- Button trigger modal -->
+        <button class="btn btn-primary btn-md" id="cool-button" data-toggle="modal" data-target="#myModal">
+   	      Save 
+        </button>
+		
 	  </div><!-- /.display_body -->
+	  
+	  
+
+		<!-- Modal -->
+		<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  		  <div class="modal-dialog">
+    		<div class="modal-content">
+      		  <div class="modal-header">
+        		<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        		<h4 class="modal-title" id="myModalLabel">Modal title</h4>
+      		  </div>
+      		<div class="modal-body">
+        	  <%= form_tag("/trips/save", method: "post") do %>
+	  	        <%= label_tag(:trip_name, "Name of Trip") %>
+	  	        <br>
+	  	        <%= text_field_tag(:trip_name, nil,required:true) %>
+	  	        <br>
+	  	        <%= label_tag(:trip_description, "Description") %>
+	  	        <br>
+	  	        <%= text_area_tag(:trip_description, "" , size: "60x5", required:true) %>
+	  	        <br><br>
+	  	        <div class="modal-footer">
+	  	          <button type="button" class="btn btn-default" id="cool-button" data-dismiss="modal">Close</button>
+	  	          <%= submit_tag ("Save"), :class => "btn btn-default btn-sm", :id => "cool-button" %>
+	  	        </div>
+    	     <% end %>
+      		</div>
+      		
+        	  
+
+      		
+    	  </div>
+  		</div>
+	  </div>
+
+
 	</body>	
 </html>

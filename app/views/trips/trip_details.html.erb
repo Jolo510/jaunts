@@ -7,19 +7,23 @@
   	<!-- Rendering the navigation bar -->
   	<%= render partial: 'layouts/navbar' %>
   	<h1>Detailed Trip Page</h1>
-  	<hr>
   	<% trippy = Trip.find(params[:trip_id]) %> <br> 
   	<div>
-      <h4><%= trippy.name %></h4>
-  	  <p><%= trippy.description %> </p>
+      <h3>Title : <%= trippy.name %></h3>
+  	  <p id="paragraph">Description : <%= trippy.description %> </p>
   	</div>
   	
-  	
-  	
-  	<% splits = trippy.json.split(",") %>
-  	<% splits.each do |split|%>
-  	  <%= split %>  <br> 
-  	<% end %>
+  	<div>
+      <% splits = trippy.json.split(",") %>
+  	  <% splits.each do |split|%>
+  	    <div class="col-sm-6 col-md-3 col-lg-4">
+  	      <div class="thumbnail">
+  	        <% yelp_split = Yelp.client.business(split) %> 
+  	        <%= yelp_split.name %>
+  	      </div>
+  	    </div>
+  	  <% end %>
+  	</div>
   </body>
   
 </html>
