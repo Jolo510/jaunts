@@ -1,1 +1,1 @@
-json.extract! @business, :id, :id, :name, :image_url, :display_phone, :review_count, :rating_img_url, :snippet_text, :location_address, :location_city, :location_state, :location_postal, :created_at, :updated_at
+json.extract! @business, :id, :yelp_id, :name, :image_url, :display_phone, :review_count, :rating_img_url, :snippet_text, :location_address, :location_city, :location_state, :location_postal, :created_at, :updated_at

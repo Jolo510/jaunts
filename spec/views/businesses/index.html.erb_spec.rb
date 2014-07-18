@@ -4,7 +4,7 @@ describe "businesses/index" do
   before(:each) do
     assign(:businesses, [
       stub_model(Business,
-        :id => "Id",
+        :yelp_id => "Yelp",
         :name => "Name",
         :image_url => "Image Url",
         :display_phone => "Display Phone",
@@ -17,7 +17,7 @@ describe "businesses/index" do
         :location_postal => "Location Postal"
       ),
       stub_model(Business,
-        :id => "Id",
+        :yelp_id => "Yelp",
         :name => "Name",
         :image_url => "Image Url",
         :display_phone => "Display Phone",
@@ -35,7 +35,7 @@ describe "businesses/index" do
   it "renders a list of businesses" do
     render
     # Run the generator again with the --webrat flag if you want to use webrat matchers
-    assert_select "tr>td", :text => "Id".to_s, :count => 2
+    assert_select "tr>td", :text => "Yelp".to_s, :count => 2
     assert_select "tr>td", :text => "Name".to_s, :count => 2
     assert_select "tr>td", :text => "Image Url".to_s, :count => 2
     assert_select "tr>td", :text => "Display Phone".to_s, :count => 2

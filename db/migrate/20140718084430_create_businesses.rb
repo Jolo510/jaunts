@@ -1,7 +1,7 @@
 class CreateBusinesses < ActiveRecord::Migration
   def change
     create_table :businesses do |t|
-      t.string :id
+      t.string :yelp_id
       t.string :name
       t.string :image_url
       t.string :display_phone

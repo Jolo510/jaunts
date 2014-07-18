@@ -11,19 +11,35 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140704073557) do
+ActiveRecord::Schema.define(version: 20140718084430) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "businesses", force: true do |t|
+    t.string   "yelp_id"
+    t.string   "name"
+    t.string   "image_url"
+    t.string   "display_phone"
+    t.integer  "review_count"
+    t.string   "rating_img_url"
+    t.string   "snippet_text"
+    t.string   "location_address"
+    t.string   "location_city"
+    t.string   "location_state"
+    t.string   "location_postal"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "trips", force: true do |t|
     t.string   "name"
     t.string   "description"
     t.string   "json"
+    t.string   "user_id"
     t.integer  "rating"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "user_id"
   end
 
 end

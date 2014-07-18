@@ -3,7 +3,7 @@ require 'spec_helper'
 describe "businesses/edit" do
   before(:each) do
     @business = assign(:business, stub_model(Business,
-      :id => "MyString",
+      :yelp_id => "MyString",
       :name => "MyString",
       :image_url => "MyString",
       :display_phone => "MyString",
@@ -22,7 +22,7 @@ describe "businesses/edit" do
 
     # Run the generator again with the --webrat flag if you want to use webrat matchers
     assert_select "form[action=?][method=?]", business_path(@business), "post" do
-      assert_select "input#business_id[name=?]", "business[id]"
+      assert_select "input#business_yelp_id[name=?]", "business[yelp_id]"
       assert_select "input#business_name[name=?]", "business[name]"
       assert_select "input#business_image_url[name=?]", "business[image_url]"
       assert_select "input#business_display_phone[name=?]", "business[display_phone]"

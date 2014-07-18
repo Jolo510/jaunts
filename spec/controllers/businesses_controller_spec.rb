@@ -23,7 +23,7 @@ describe BusinessesController do
   # This should return the minimal set of attributes required to create a valid
   # Business. As you add validations to Business, be sure to
   # adjust the attributes here as well.
-  let(:valid_attributes) { { "id" => "MyString" } }
+  let(:valid_attributes) { { "yelp_id" => "MyString" } }
 
   # This should return the minimal set of values that should be in the session
   # in order to pass any filters (e.g. authentication) defined in
@@ -85,14 +85,14 @@ describe BusinessesController do
       it "assigns a newly created but unsaved business as @business" do
         # Trigger the behavior that occurs when invalid params are submitted
         Business.any_instance.stub(:save).and_return(false)
-        post :create, {:business => { "id" => "invalid value" }}, valid_session
+        post :create, {:business => { "yelp_id" => "invalid value" }}, valid_session
         assigns(:business).should be_a_new(Business)
       end
 
       it "re-renders the 'new' template" do
         # Trigger the behavior that occurs when invalid params are submitted
         Business.any_instance.stub(:save).and_return(false)
-        post :create, {:business => { "id" => "invalid value" }}, valid_session
+        post :create, {:business => { "yelp_id" => "invalid value" }}, valid_session
         response.should render_template("new")
       end
     end
@@ -106,8 +106,8 @@ describe BusinessesController do
         # specifies that the Business created on the previous line
         # receives the :update_attributes message with whatever params are
         # submitted in the request.
-        Business.any_instance.should_receive(:update).with({ "id" => "MyString" })
-        put :update, {:id => business.to_param, :business => { "id" => "MyString" }}, valid_session
+        Business.any_instance.should_receive(:update).with({ "yelp_id" => "MyString" })
+        put :update, {:id => business.to_param, :business => { "yelp_id" => "MyString" }}, valid_session
       end
 
       it "assigns the requested business as @business" do
@@ -128,7 +128,7 @@ describe BusinessesController do
         business = Business.create! valid_attributes
         # Trigger the behavior that occurs when invalid params are submitted
         Business.any_instance.stub(:save).and_return(false)
-        put :update, {:id => business.to_param, :business => { "id" => "invalid value" }}, valid_session
+        put :update, {:id => business.to_param, :business => { "yelp_id" => "invalid value" }}, valid_session
         assigns(:business).should eq(business)
       end
 
@@ -136,7 +136,7 @@ describe BusinessesController do
         business = Business.create! valid_attributes
         # Trigger the behavior that occurs when invalid params are submitted
         Business.any_instance.stub(:save).and_return(false)
-        put :update, {:id => business.to_param, :business => { "id" => "invalid value" }}, valid_session
+        put :update, {:id => business.to_param, :business => { "yelp_id" => "invalid value" }}, valid_session
         response.should render_template("edit")
       end
     end
