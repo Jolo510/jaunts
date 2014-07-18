@@ -1,7 +1,11 @@
 Jaunt::Application.routes.draw do
   
+  resources :businesses
+
   get 'trips/itinerary', to: 'trips#itinerary'
   get 'trips/saved_trips', to: 'trips#saved_trips'
+  post 'trips/place_details', to: 'trips#place_details'
+  post 'trips/trip_details', to: 'trips#trip_details'
   post 'trips/delete', to: 'trips#delete' 
   get 'yelp/search', to: 'yelp#search'
   get 'yelp/result', to: 'yelp#result'

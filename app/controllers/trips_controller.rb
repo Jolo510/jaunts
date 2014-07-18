@@ -21,6 +21,14 @@ class TripsController < ApplicationController
   def edit
   end
   
+  def place_details
+    
+  end
+  
+  def trip_details
+    
+  end
+  
   # Saved Trips 
   def saved_trips
     @trips = Trip.all 

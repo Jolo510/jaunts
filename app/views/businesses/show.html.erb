@@ -1,0 +1,59 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Id:</strong>
+  <%= @business.id %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @business.name %>
+</p>
+
+<p>
+  <strong>Image url:</strong>
+  <%= @business.image_url %>
+</p>
+
+<p>
+  <strong>Display phone:</strong>
+  <%= @business.display_phone %>
+</p>
+
+<p>
+  <strong>Review count:</strong>
+  <%= @business.review_count %>
+</p>
+
+<p>
+  <strong>Rating img url:</strong>
+  <%= @business.rating_img_url %>
+</p>
+
+<p>
+  <strong>Snippet text:</strong>
+  <%= @business.snippet_text %>
+</p>
+
+<p>
+  <strong>Location address:</strong>
+  <%= @business.location_address %>
+</p>
+
+<p>
+  <strong>Location city:</strong>
+  <%= @business.location_city %>
+</p>
+
+<p>
+  <strong>Location state:</strong>
+  <%= @business.location_state %>
+</p>
+
+<p>
+  <strong>Location postal:</strong>
+  <%= @business.location_postal %>
+</p>
+
+<%= link_to 'Edit', edit_business_path(@business) %> |
+<%= link_to 'Back', businesses_path %>

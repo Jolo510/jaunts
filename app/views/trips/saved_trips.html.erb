@@ -13,7 +13,8 @@
         <div class="col-sm-6 col-md-4 col-lg-4">
       	  <div class="thumbnail">
       	  	<div class="caption">
-      		  <h3><%= trip.name %></h3>
+      		  <h3><% trip.name %></h3>
+      		  <%= button_to trip.name, trips_trip_details_path(trip_id: trip.id) %> <br>
 			  <p><%= trip.description %></p>
 			  <% yelp = trip.json %>
 			  <% yelp = yelp.split(",") %>

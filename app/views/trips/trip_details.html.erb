@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  </head>
+  
+  <body>
+  	<!-- Rendering the navigation bar -->
+  	<%= render partial: 'layouts/navbar' %>
+  	<h1>Detailed Trip Page</h1>
+  	<hr>
+  	<% trippy = Trip.find(params[:trip_id]) %> <br> 
+  	<div>
+      <h4><%= trippy.name %></h4>
+  	  <p><%= trippy.description %> </p>
+  	</div>
+  	
+  	
+  	
+  	<% splits = trippy.json.split(",") %>
+  	<% splits.each do |split|%>
+  	  <%= split %>  <br> 
+  	<% end %>
+  </body>
+  
+</html>
