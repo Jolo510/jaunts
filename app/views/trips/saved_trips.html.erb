@@ -6,23 +6,31 @@
   <body>
   	<!-- Rendering the navigation bar -->
   	<%= render partial: 'layouts/navbar' %>
-    <h1>Your Saved Trips</h1>
+    <div class="page-title">
+      Your Saved Trips
+    </div>
+    <br> 
     <% none = 0 %>
     <% @trips.each do |trip| %>
       <% if trip.user_id == session.id %>
         <div class="col-sm-6 col-md-4 col-lg-4">
       	  <div class="thumbnail">
       	  	<div class="caption">
-      		  <h3><% trip.name %></h3>
-      		  <%= button_to trip.name, trips_trip_details_path(trip_id: trip.id) %> <br>
+      		  <h3><%= trip.name %></h3>
+      		  
 			  <p><%= trip.description %></p>
 			  <% yelp = trip.json %>
 			  <% yelp = yelp.split(",") %>
 			  <% yelp.each do |yelp| %>
-			    <%= yelp %> <br>
+			    <% yelpObj =  Yelp.client.business(yelp) %> <br>
+				<%= yelpObj.name %>		  
 			  <% end %>
+			  <div style="position:absolute;bottom:15px;right:15px;margin:0;padding:15px 15px;">
+			  	<%= button_to "Details", trips_trip_details_path(trip_id: trip.id), :id => "cool-button" %>
+			  </div>
       		</div>
       	  </div>
+      	  
         </div>
         <% none += 1 %>
       <% end %>

@@ -19,8 +19,17 @@
   	    <div class="col-sm-6 col-md-3 col-lg-4">
   	      <div class="thumbnail">
   	        <% yelp_split = Yelp.client.business(split) %> 
-  	        <%= yelp_split.name %>
-  	      </div>
+  	        <%= image_tag(yelp_split.image_url) %>
+  	        <div class="caption">
+  	          <h3><%= yelp_split.name %></h3> 
+  	          <p><%= yelp_split.snippet_text %></p>
+  	            <%= yelp_split.location.address[0] %> <br>
+				<%= yelp_split.location.city %>
+			    <%= yelp_split.location.state_code %>,
+			    <%= yelp_split.location.postal_code %> <br><br>
+			    <h7>Yelp Link: <a href="<%= yelp_split.url %>" class="btn btn-default" id="cool-button" style="color:#c41200;border-color:#c41200;">Yelp!</a></h7> 
+		    </div> 
+		  </div>
   	    </div>
   	  <% end %>
   	</div>

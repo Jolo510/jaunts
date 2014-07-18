@@ -18,15 +18,19 @@
   <body>
   	<!-- Rendering the navigation bar -->
   	<%= render partial: 'layouts/navbar' %>
-    <h1>Search Page </h1>
+    <div class="page-title">
+    	Search Page
+    </div>
     <br><hr>
-    <%= form_tag("/yelp/result", method: "get", :id => "search-form") do %>
-	  <%= label_tag(:place, "Search") %>
-	  <%= text_field_tag(:place, nil,  required: true) %>
-	  <%= label_tag(:location, "Location") %>
-	  <%= text_field_tag(:location, nil,  required: true) %>
-	  <%= submit_tag ("Search"), :class => "btn btn-default btn-sm" %>
-    <% end %> 	
+    <div class="page-body">
+      <%= form_tag("/yelp/result", method: "get", :id => "search-form") do %>
+	    <%= label_tag(:place, "Search") %>
+	    <%= text_field_tag(:place, nil,  required: true) %>
+	    <%= label_tag(:location, "Location") %>
+	    <%= text_field_tag(:location, nil,  required: true) %>
+	    <%= submit_tag ("Search"), :class => "btn btn-default btn-sm", :id => "cool-button" %>
+      <% end %> 	
+    </div>
 		
   </body>
 	

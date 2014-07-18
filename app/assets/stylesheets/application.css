@@ -17,4 +17,17 @@ body {
   background-color: #E6E6DC;
 }
 
+.page-title {
+  padding-top:50px; 
+  padding-bottom:25px; 
+  font-family: "Sans-serif";
+  color:#00628B;
+  font-size: 50px; 
+}
+
+.page-body {
+  font-family: "Sans-serif";
+}
+
+
  

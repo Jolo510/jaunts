@@ -39,7 +39,7 @@ class TripsController < ApplicationController
     Trip.create :name => params[:trip_name], :description => params[:trip_description], 
                 :json => session[:yelp], :user_id => session.id
     session[:yelp] = nil
-    redirect_to root_path
+    redirect_to trips_saved_trips_path
   end
   
   # Delete place from Trip 

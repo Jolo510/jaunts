@@ -16,56 +16,56 @@
   </script>
 		
   <body>
-  	<!-- Rendering the navigation bar -->
-  	<%= render partial: 'layouts/navbar' %>
-    <h1>Current Trip </h1>
-      <br><hr>
-      <div id="display-body">
-      	<h3>Places</h3>
-		<% yelp_ids = session[:yelp] %>
-		<% if yelp_ids != nil %>
-		  <% yelp_ids = yelp_ids.split(",")%>
-		  <% count = 0 %>
-		  <div class="row">
-		    <% yelp_ids.each do |yelp| %>
-			  <% yelp_object = Yelp.client.business(yelp) %>
-	            <div class="col-sm-6 col-md-4 col-lg-3">
-	              <div class="thumbnail">
-	          	    <div class="caption">
-	          	      <h3>
-	          	  	    <a href = <%= yelp_object.url %>> <%= yelp_object.name %> </a> 
-	          	      </h3>
-				      <img src=<%= yelp_object.image_url %>>  <br>
-		              <img src=<%= yelp_object.rating_img_url %>> 
-		              <%= yelp_object.review_count %> 
-	          	    </div> <!-- /.caption -->
-	          	    <div>
-	                  <%= yelp_object.location.address[0] %> <br>
-		              <%= yelp_object.location.city %>
-		    	      <%= yelp_object.location.state_code %>, 
-		    	      <%= yelp_object.location.postal_code %> <br><br> 
-		    	      <%= yelp_object.snippet_text %> <br><br> 
-		    	      <%= button_to "Remove", trips_delete_path(counter: count), :class => "btn btn-default btn-sm" %> <br>
-		    	      <% count = count + 1 %>
+    <!-- Rendering the navigation bar -->
+    <%= render partial: 'layouts/navbar' %>
+  <div class='page-title'>
+    Creating a Jaunt
+  </div>
+  <br><hr>
+  <div id="display-body">
+    <h3>Places</h3>
+ 	  <% yelp_ids = session[:yelp] %>
+	  <% if yelp_ids != nil %>
+	    <% yelp_ids = yelp_ids.split(",")%>
+	    <% count = 0 %>
+        <div class="row">
+		     <% yelp_ids.each do |yelp| %>
+			   <% yelp_object = Yelp.client.business(yelp) %>
+	             <div class="col-sm-6 col-md-4 col-lg-3">
+	               <div class="thumbnail">
+	          	     <div class="caption">
+	          	       <h3>
+	          	  	     <a href = <%= yelp_object.url %>> <%= yelp_object.name %> </a> 
+	          	        </h3>
+				        <img src=<%= yelp_object.image_url %>>  <br>
+		                <img src=<%= yelp_object.rating_img_url %>> 
+		                <%= yelp_object.review_count %> 
+	          	     </div> <!-- /.caption -->
+	          	   <div>
+  				     <%= yelp_object.location.address[0] %> <br>
+	   				 <%= yelp_object.location.city %>
+					 <%= yelp_object.location.state_code %>, 
+	                 <%= yelp_object.location.postal_code %> <br><br> 
+	                 <%= yelp_object.snippet_text %> <br><br> 
+	                 <%= button_to "Remove", trips_delete_path(counter: count), :class => "btn btn-default btn-sm", :id => "cool-button" %> <br>
+	                 <% count = count + 1 %>
 	               </div> 
-	              </div> <!-- /.thumbnail -->
-	            </div> <!-- /.col-md-4 -->
-		    <% end %> 
-		  </div> <!-- /.row -->
-		<% end %> 
+	             </div> <!-- /.thumbnail -->
+	           </div> <!-- /.col-md-4 -->
+		     <% end %> 
+		   </div> <!-- /.row -->
+		 <% end %> 
 		
-		<div class="row" style="padding-left:10px"> 
-		  <%= button_to "Add a place", yelp_search_path, :method => :get, :id => "save-form", :class => "btn btn-default btn-sm" %>
-		  <br>
-		   	
-		</div>
+		 <div class="row" style="padding-left:10px;font-weight:bold;"> 
+		   <%= link_to " + Add a place", yelp_search_path %>
+		 </div>
+		 <br><br>
+		 <!-- Button trigger modal -->
+         <button class="btn btn-primary btn-md" id="cool-button" data-toggle="modal" data-target="#myModal">
+   	       Save 
+         </button>
 		
-		<!-- Button trigger modal -->
-        <button class="btn btn-primary btn-md" id="cool-button" data-toggle="modal" data-target="#myModal">
-   	      Save 
-        </button>
-		
-	  </div><!-- /.display_body -->
+	   </div><!-- /.display_body -->
 	  
 	  
 
@@ -75,7 +75,7 @@
     		<div class="modal-content">
       		  <div class="modal-header">
         		<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-        		<h4 class="modal-title" id="myModalLabel">Modal title</h4>
+        		<h4 class="modal-title" id="myModalLabel">Saving Jaunt</h4>
       		  </div>
       		<div class="modal-body">
         	  <%= form_tag("/trips/save", method: "post") do %>
@@ -93,9 +93,6 @@
 	  	        </div>
     	     <% end %>
       		</div>
-      		
-        	  
-
       		
     	  </div>
   		</div>
