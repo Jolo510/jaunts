@@ -5,10 +5,10 @@ describe "businesses/edit" do
     @business = assign(:business, stub_model(Business,
       :yelp_id => "MyString",
       :name => "MyString",
-      :image_url => "MyString",
+      :image => "",
       :display_phone => "MyString",
       :review_count => 1,
-      :rating_img_url => "MyString",
+      :rating_img => "",
       :snippet_text => "MyString",
       :location_address => "MyString",
       :location_city => "MyString",
@@ -24,10 +24,10 @@ describe "businesses/edit" do
     assert_select "form[action=?][method=?]", business_path(@business), "post" do
       assert_select "input#business_yelp_id[name=?]", "business[yelp_id]"
       assert_select "input#business_name[name=?]", "business[name]"
-      assert_select "input#business_image_url[name=?]", "business[image_url]"
+      assert_select "input#business_image[name=?]", "business[image]"
       assert_select "input#business_display_phone[name=?]", "business[display_phone]"
       assert_select "input#business_review_count[name=?]", "business[review_count]"
-      assert_select "input#business_rating_img_url[name=?]", "business[rating_img_url]"
+      assert_select "input#business_rating_img[name=?]", "business[rating_img]"
       assert_select "input#business_snippet_text[name=?]", "business[snippet_text]"
       assert_select "input#business_location_address[name=?]", "business[location_address]"
       assert_select "input#business_location_city[name=?]", "business[location_city]"

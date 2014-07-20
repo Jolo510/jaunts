@@ -6,7 +6,9 @@
   <body>
   	<!-- Rendering the navigation bar -->
   	<%= render partial: 'layouts/navbar' %>
-  	<h1>Detailed Trip Page</h1>
+  	<div class="page-title">
+  		Detailed Trip Page
+  	</div>
   	<% trippy = Trip.find(params[:trip_id]) %> <br> 
   	<div>
       <h3>Title : <%= trippy.name %></h3>
