@@ -12,6 +12,8 @@ Jaunt::Application.routes.draw do
   get 'yelp/error', to: 'yelp#error' 
   post 'yelp/set_cookie', to: 'yelp#set_cookie'
   post 'trips/save', to: 'trips#save'
+  post 'businesses/save', to: 'businesses#save' 
+  get 'foo', to: 'businesses#image' 
   root 'welcome#index'
   
   

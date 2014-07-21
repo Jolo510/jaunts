@@ -3,10 +3,10 @@ class CreateBusinesses < ActiveRecord::Migration
     create_table :businesses do |t|
       t.string :yelp_id
       t.string :name
-      t.bytea :image
+      t.binary :image
       t.string :display_phone
       t.integer :review_count
-      t.bytea :rating_img
+      t.binary :rating_img
       t.string :snippet_text
       t.string :location_address
       t.string :location_city

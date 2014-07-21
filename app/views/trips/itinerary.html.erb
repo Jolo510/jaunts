@@ -20,6 +20,7 @@
     <%= render partial: 'layouts/navbar' %>
   <div class='page-title'>
     Creating a Jaunt
+    <%= button_to "Saving Image", businesses_save_path %>
   </div>
   <br><hr>
   <div id="display-body">
@@ -78,7 +79,7 @@
         		<h4 class="modal-title" id="myModalLabel">Saving Jaunt</h4>
       		  </div>
       		<div class="modal-body">
-        	  <%= form_tag("/trips/save", method: "post") do %>
+        	  <%= form_tag("/trips/save", method: "post") do %>b
 	  	        <%= label_tag(:trip_name, "Name of Trip") %>
 	  	        <br>
 	  	        <%= text_field_tag(:trip_name, nil,required:true) %>
@@ -93,6 +94,8 @@
 	  	        </div>
     	     <% end %>
       		</div>
+      		
+      		
       		
     	  </div>
   		</div>

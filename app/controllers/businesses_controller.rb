@@ -20,6 +20,19 @@ class BusinessesController < ApplicationController
   # GET /businesses/1/edit
   def edit
   end
+  
+  def image
+    image2 = Business.find(params[:id])
+    image2.image
+    send_data(image2.image, :type => "image/png")
+  end
+  
+  def save 
+    test = ""
+    test << open('http://nuclearpixel.com/content/icons/2010-02-09_stellar_icons_from_space_from_2005/earth_128.png').read
+    Business.create :image => test
+    redirect_to root_path
+  end
 
   # POST /businesses
   # POST /businesses.json
