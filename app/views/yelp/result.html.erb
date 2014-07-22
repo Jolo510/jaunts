@@ -32,7 +32,10 @@
 			    <%= results.businesses[i].location.postal_code %> <br><br>
 			    <%= results.businesses[i].snippet_text %> <br><br>
 			    <% yelp = results.businesses[i].id %>
-			    <%= button_to "Add to Trip", yelp_set_cookie_path(yelp_save_id: yelp, yelp_save_image: results.businesses[i].image_url), :class => "btn btn-default btn-sm", :id => "cool-button" %> <br>
+			    <%= button_to "Add to Trip", yelp_set_cookie_path(yelp_save_id: yelp, yelp_save_name: results.businesses[i].name, yelp_save_image: results.businesses[i].image_url,
+			    							 yelp_save_phone: results.businesses[i].display_phone, yelp_save_count: results.businesses[i].review_count, yelp_save_rating: results.businesses[i].rating_img_url,
+			    							 yelp_save_snippet: results.businesses[i].snippet_text, yelp_save_address: results.businesses[i].location.address[0], yelp_save_city: results.businesses[i].location.city,
+			    							 yelp_save_state: results.businesses[i].location.state_code, yelp_save_postal: results.businesses[i].location.postal_code), :class => "btn btn-default btn-sm", :id => "cool-button" %> <br>
 			    </div>
 	          </div>
 	        </div>

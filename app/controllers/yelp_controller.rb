@@ -14,8 +14,11 @@ class YelpController < ApplicationController
     else 
       session[:yelp] += "," + params[:yelp_save_id]
     end 
-    params[:yelp_image] = params[:yelp_save_image]
-    redirect_to businesses_save_path(yelpId: params[:yelp_save_id], yelpImage: params[:yelp_save_image])
+   
+    redirect_to businesses_save_path(yelpId: params[:yelp_save_id], yelpName: params[:yelp_save_name], yelpImage: params[:yelp_save_image], yelpPhone: params[:yelp_save_phone],
+    yelpCount: params[:yelp_save_count], yelpRating: params[:yelp_save_rating], yelpSnippet: params[:yelp_save_snippet], yelpAddress: params[:yelp_save_address], yelpCity: params[:yelp_save_city],
+    yelpState: params[:yelp_save_state], yelpPostal: params[:yelp_save_postal]); 
+    
     end 
 
 end 

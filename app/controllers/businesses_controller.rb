@@ -23,15 +23,25 @@ class BusinessesController < ApplicationController
   
   def image
     image2 = Business.find_by yelp_id: params[:id]
-    image2.image
     send_data(image2.image, :type => "image/png")
   end
   
   def save 
-    test = ""
-    test << open(params[:yelpImage].to_s).read
-    Business.create :yelp_id => params[:yelpId], :image => test 
-    redirect_to yelp_search_path
+    
+    # If the yelp businesses is not in the database it will be added
+    occur = Business.find_by yelp_id: params[:yelpId]
+    if occur == nil
+      # business image 
+      bus_img = ""
+      bus_img << open(params[:yelpImage].to_s).read
+      rating_img = ""
+      rating_img << open(params[:yelpRating].to_s).read 
+      
+      Business.create :yelp_id => params[:yelpId], :name => params[:yelpName], :image => bus_img, :display_phone => params[:yelpPhone], :review_count => params[:yelpCount],
+                      :rating_img => rating_img, :snippet_text => params[:yelpSnippet], :location_address => params[:yelpAddress], :location_city => params[:yelpCity],
+                      :location_state => params[:yelpState], :location_postal => params[:yelpPostal]
+    end 
+    redirect_to trips_itinerary_path
   end
 
   # POST /businesses
