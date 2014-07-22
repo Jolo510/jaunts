@@ -1,5 +1,6 @@
 Jaunt::Application.routes.draw do
   
+  get 'businesses/save', to: 'businesses#save' 
   resources :businesses
 
   get 'trips/itinerary', to: 'trips#itinerary'
@@ -12,7 +13,7 @@ Jaunt::Application.routes.draw do
   get 'yelp/error', to: 'yelp#error' 
   post 'yelp/set_cookie', to: 'yelp#set_cookie'
   post 'trips/save', to: 'trips#save'
-  post 'businesses/save', to: 'businesses#save' 
+  
   get 'foo', to: 'businesses#image' 
   root 'welcome#index'
   

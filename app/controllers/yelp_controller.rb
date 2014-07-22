@@ -10,12 +10,12 @@ class YelpController < ApplicationController
   
   def set_cookie 
     if session[:yelp] == nil
-      session[:yelp] = params[:yelp_id]
+      session[:yelp] = params[:yelp_save_id]
     else 
-      session[:yelp] += "," + params[:yelp_id]
+      session[:yelp] += "," + params[:yelp_save_id]
     end 
-    
-    redirect_to trips_itinerary_path
+    params[:yelp_image] = params[:yelp_save_image]
+    redirect_to businesses_save_path(yelpId: params[:yelp_save_id], yelpImage: params[:yelp_save_image])
     end 
 
 end 
