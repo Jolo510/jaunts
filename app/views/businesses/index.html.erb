@@ -14,6 +14,7 @@
       <th>Location city</th>
       <th>Location state</th>
       <th>Location postal</th>
+      <th>Url</th>
       <th></th>
       <th></th>
       <th></th>
@@ -34,6 +35,7 @@
         <td><%= business.location_city %></td>
         <td><%= business.location_state %></td>
         <td><%= business.location_postal %></td>
+        <td><%= business.url %></td>
         <td><%= link_to 'Show', business %></td>
         <td><%= link_to 'Edit', edit_business_path(business) %></td>
         <td><%= link_to 'Destroy', business, method: :delete, data: { confirm: 'Are you sure?' } %></td>
