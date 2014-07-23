@@ -37,10 +37,15 @@ class TripsController < ApplicationController
   
   # Save Action 
   def save 
-    Trip.create :name => params[:trip_name], :description => params[:trip_description], 
-                :json => session[:yelp], :user_id => session.id
-    session[:yelp] = nil
-    redirect_to trips_saved_trips_path
+    if session[:yelp] == nil
+      session[:error] = true 
+      redirect_to trips_itinerary_path
+    else 
+      Trip.create :name => params[:trip_name], :description => params[:trip_description], 
+                  :json => session[:yelp], :user_id => session.id
+      session[:yelp] = nil
+      redirect_to trips_saved_trips_path
+    end 
   end
   
   # Delete place from Trip 

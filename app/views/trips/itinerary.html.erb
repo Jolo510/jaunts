@@ -60,8 +60,17 @@
 		
 		 <div class="row" style="padding-left:10px;font-weight:bold;"> 
 		   <%= link_to " + Add a place", yelp_search_path %>
+		   
+		   <!-- Error handling if user tries to save without having adding a place -->
+		   
+		   <% if session[:error] == true %>
+		     <br><br>
+		     <div class="alert alert-danger" role="alert">Need to add a place before saving! Click the +Add a place button!</div>
+		   <% session[:error] = false %>
+		   <% end %>
+		   
 		 </div>
-		 <br><br>
+		 <br>
 		 <!-- Button trigger modal -->
          <button class="btn btn-primary btn-md" id="cool-button" data-toggle="modal" data-target="#myModal">
    	       Save 
