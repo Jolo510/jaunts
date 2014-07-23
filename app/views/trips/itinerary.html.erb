@@ -30,23 +30,25 @@
 	    <% count = 0 %>
         <div class="row">
 		     <% yelp_ids.each do |yelp| %>
-			   <% yelp_object = Yelp.client.business(yelp) %>
+		       <% bus = Business.find_by yelp_id: yelp %>
 	             <div class="col-sm-6 col-md-4 col-lg-3">
 	               <div class="thumbnail">
 	          	     <div class="caption">
 	          	       <h3>
-	          	  	     <a href = <%= yelp_object.url %>> <%= yelp_object.name %> </a> 
+	          	  	     <a href = <%= bus.url %>> <%= bus.name %></a> 
+	          	  	     
 	          	        </h3>
-				        <img src=<%= yelp_object.image_url %>>  <br>
-		                <img src=<%= yelp_object.rating_img_url %>> 
-		                <%= yelp_object.review_count %> 
+	          	        
+	          	        <%= image_tag( display_image_path(:yelpId => yelp) ) %><br>
+	          	        <%= image_tag( display_rating_path(:yelpId => yelp) )%>
+		                <%= bus.review_count %>
 	          	     </div> <!-- /.caption -->
 	          	   <div>
-  				     <%= yelp_object.location.address[0] %> <br>
-	   				 <%= yelp_object.location.city %>
-					 <%= yelp_object.location.state_code %>, 
-	                 <%= yelp_object.location.postal_code %> <br><br> 
-	                 <%= yelp_object.snippet_text %> <br><br> 
+  				     <%= bus.location_address %><br>
+	   				 <%= bus.location_city %>
+					 <%= bus.location_state %>, 
+	                 <%= bus.location_postal %> <br><br> 
+	                 <%= bus.snippet_text %> <br><br> 
 	                 <%= button_to "Remove", trips_delete_path(counter: count), :class => "btn btn-default btn-sm", :id => "cool-button" %> <br>
 	                 <% count = count + 1 %>
 	               </div> 
@@ -64,7 +66,6 @@
          <button class="btn btn-primary btn-md" id="cool-button" data-toggle="modal" data-target="#myModal">
    	       Save 
          </button>
-		  <br><br> <%= button_to "Saving Image", businesses_save_path %>
 	   </div><!-- /.display_body -->
 	  
 	  
@@ -78,7 +79,7 @@
         		<h4 class="modal-title" id="myModalLabel">Saving Jaunt</h4>
       		  </div>
       		<div class="modal-body">
-        	  <%= form_tag("/trips/save", method: "post") do %>b
+        	  <%= form_tag("/trips/save", method: "post") do %>
 	  	        <%= label_tag(:trip_name, "Name of Trip") %>
 	  	        <br>
 	  	        <%= text_field_tag(:trip_name, nil,required:true) %>
@@ -89,7 +90,7 @@
 	  	        <br><br>
 	  	        <div class="modal-footer">
 	  	          <button type="button" class="btn btn-default" id="cool-button" data-dismiss="modal">Close</button>
-	  	          <%= submit_tag ("Save"), :class => "btn btn-default btn-sm", :id => "cool-button" %>
+	  	          <%= submit_tag ("Save"), :class => "btn btn-default btn-md", :id => "cool-button" %>
 	  	        </div>
     	     <% end %>
       		</div>

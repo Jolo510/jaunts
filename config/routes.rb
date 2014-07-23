@@ -13,7 +13,8 @@ Jaunt::Application.routes.draw do
   get 'yelp/error', to: 'yelp#error' 
   post 'yelp/set_cookie', to: 'yelp#set_cookie'
   post 'trips/save', to: 'trips#save'
-  
+  get 'display/image', to: 'businesses#display_image'
+  get 'display/rating', to: 'businesses#display_rating'
   get 'foo', to: 'businesses#image' 
   root 'welcome#index'
   

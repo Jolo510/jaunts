@@ -26,6 +26,16 @@ class BusinessesController < ApplicationController
     send_data(image2.image, :type => "image/png")
   end
   
+  def display_image
+    busObject  = Business.find_by yelp_id: (params[:yelpId])
+    send_data( busObject.image , :type => "image/png")
+  end
+  
+  def display_rating
+    busObject  = Business.find_by yelp_id: (params[:yelpId])
+    send_data( busObject.rating_img , :type => "image/png")
+  end
+  
   def save 
     
     # If the yelp businesses is not in the database it will be added
@@ -37,7 +47,7 @@ class BusinessesController < ApplicationController
       rating_img = ""
       rating_img << open(params[:yelpRating].to_s).read 
       
-      Business.create :yelp_id => params[:yelpId], :name => params[:yelpName], :image => bus_img, :display_phone => params[:yelpPhone], :review_count => params[:yelpCount],
+      Business.create :yelp_id => params[:yelpId], :name => params[:yelpName], :image => bus_img, :review_count => params[:yelpCount],
                       :rating_img => rating_img, :snippet_text => params[:yelpSnippet], :location_address => params[:yelpAddress], :location_city => params[:yelpCity],
                       :location_state => params[:yelpState], :location_postal => params[:yelpPostal], :url => params[:yelpUrl]
     end 

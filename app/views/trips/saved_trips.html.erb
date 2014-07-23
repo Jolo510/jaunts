@@ -23,8 +23,8 @@
 			  <% yelp = trip.json %>
 			  <% yelp = yelp.split(",") %>
 			  <% yelp.each do |yelp| %>
-			    <% yelpObj =  Yelp.client.business(yelp) %> <br>
-				<%= yelpObj.name %>		  
+			    <% bus = Business.find_by yelp_id: yelp %> <br>
+				<%= bus.name %>		  
 			  <% end %>
 			  <div style="position:absolute;bottom:15px;right:15px;margin:0;padding:15px 15px;">
 			  	<%= button_to "Details", trips_trip_details_path(trip_id: trip.id), :id => "cool-button" %>
