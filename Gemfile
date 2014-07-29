@@ -12,6 +12,13 @@ gem 'rspec-rails'
 # Use yelp
 gem 'yelp', '~>2.0.1' 
 
+# Omniauth 
+gem 'omniauth' 
+
+# Omniauth-facebook 
+gem 'omniauth-facebook', '1.4.0' 
+
+
 # Use rails_12factor
 gem 'rails_12factor', group: :production 
 
