@@ -43,7 +43,7 @@ class TripsController < ApplicationController
       redirect_to trips_itinerary_path
     else 
       Trip.create :name => params[:trip_name], :description => params[:trip_description], 
-                  :json => session[:yelp], :user_id => session.id
+                  :json => session[:yelp], :user_id => current_user.uid
       session[:yelp] = nil
       redirect_to trips_saved_trips_path
     end 

@@ -12,7 +12,7 @@
     <br> 
     <% none = 0 %>
     <% @trips.reverse_each do |trip| %>
-      <% if trip.user_id == session.id %>
+      <% if trip.user_id == current_user.uid %>
         <div class="col-sm-6 col-md-4 col-lg-4">
       	  <div class="thumbnail">
     
