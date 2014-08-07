@@ -18,6 +18,8 @@ Jaunt::Application.routes.draw do
   get 'foo', to: 'businesses#image' 
   root 'welcome#index'
   
+  get 'login', to: 'welcome#login' 
+  
   # Routes for authentication
   match 'auth/:provider/callback', to: 'sessions#create', via: [:get, :post]
   match 'auth/failure', to: redirect('/'), via: [:get, :post]

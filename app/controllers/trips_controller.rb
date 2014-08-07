@@ -1,6 +1,7 @@
 class TripsController < ApplicationController
   require 'open-uri'
   before_action :set_trip, only: [:show, :edit, :update, :destroy]
+ 
 
   # GET /trips
   # GET /trips.json
