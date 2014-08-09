@@ -8,25 +8,33 @@
   		<div class="logo col-sm-12">
   			<h1 id="logo2">JAUNTS </h1>
   			<p id="logo-body">A brief trip taken for pleasure</p>
-  		</div>
+  		</div>	
   	</div>
+  	
   	<div class="center col-sm-12">
   		<%= link_to image_tag("Create a Jaunt.jpg", size: "250"), trips_itinerary_path %>    
 	    <%= link_to image_tag("View Saved Jaunts.jpg", size: "250"), trips_saved_trips_path %>   
-	    
   	</div>
   	
   	<div id="user-widget">
-  <% if current_user %>
-    <p id="sign_out">
-    	Welcome <strong><%= current_user.name %></strong>!
-    	<%= link_to "Sign out", signout_path, id: "sign_out" %>
-    </p> 
-    
-  <% else %>
-    <%= link_to "Sign in with Facebook", "/auth/facebook", id: "sign_in" %>
-  <% end %>
-</div>
-
+  	    <% if current_user %>
+          <p id="sign_out">
+    	    Welcome <strong><%= current_user.name %></strong>!
+    	    <%= image_tag(current_user.image) %>
+    	    <%= link_to "Sign out", signout_path, id: "sign_out" %>
+          </p> 
+        <% else %>
+          <%= link_to "Sign in with Facebook", "/auth/facebook", id: "sign_in" %>
+        <% end %>
+        <div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&appId=587446561363871&version=v2.0";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+    </div>
+  	
   </body>
 </html>

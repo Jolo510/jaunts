@@ -16,6 +16,17 @@
         <ul class="nav navbar-nav navbar-right" ">
       	  <li><%= link_to "CREATE/CURRENT JAUNT", trips_itinerary_path, {:style => 'color:#E6E6DC;font-size:14px;font-weight:bold;'} %></li>
       	  <li><%= link_to "VIEW SAVED JAUNTS", trips_saved_trips_path, {:style => 'color:#E6E6DC;font-size:14px;font-weight:bold;'} %></li>
+      	  <li>
+      	  	<% if current_user %>
+              <p id="sign_out">
+    	        Welcome <strong><%= current_user.name %></strong>!
+    	        <%= image_tag(current_user.image) %>
+    	        <%= link_to "Sign out", signout_path, id: "sign_out" %>
+              </p> 
+        	<% else %>
+              <%= link_to "Sign in with Facebook", "/auth/facebook", id: "sign_in" %>
+            <% end %>
+      	  </li>
         </ul>
       </div>
     </div><!-- /.container-fluid -->
