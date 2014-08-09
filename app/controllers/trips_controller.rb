@@ -36,7 +36,7 @@ class TripsController < ApplicationController
     @trips = Trip.all 
   end
   
-  # Save Action 
+  # Save Action. Saves the jaunt stored in the session to the database 
   def save 
     if session[:yelp] == nil
       session[:error] = true 
@@ -49,7 +49,7 @@ class TripsController < ApplicationController
     end 
   end
   
-  # Splitting the Cookies 
+  # Splitting the Cookies. Separated by commas 
   def display_results
     yelp_id = session[:yelp].split(",")
   end

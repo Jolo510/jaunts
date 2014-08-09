@@ -1,6 +1,7 @@
 class YelpController < ApplicationController
   skip_before_action :authorize 
   
+  # Sends a request to the yelp database to get search results 
   def yelp_search(place, location)
     params = { term: place,
                limit: 12
@@ -9,6 +10,7 @@ class YelpController < ApplicationController
     response = Yelp.client.search(location, params, locale)
   end
   
+  # Saves the place user wants to add in the cookies 
   def set_cookie 
     if session[:yelp] == nil
       session[:yelp] = params[:yelp_save_id]

@@ -27,11 +27,13 @@ class BusinessesController < ApplicationController
     send_data(image2.image, :type => "image/png")
   end
   
+  # Action that displays the yelp image from the database. Image stored as binary
   def display_image
     busObject  = Business.find_by yelp_id: (params[:yelpId])
     send_data( busObject.image , :type => "image/png")
   end
   
+  # Action that displays the rating from the database 
   def display_rating
     busObject  = Business.find_by yelp_id: (params[:yelpId])
     send_data( busObject.rating_img , :type => "image/png")
