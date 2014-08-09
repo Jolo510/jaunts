@@ -1,4 +1,5 @@
 class YelpController < ApplicationController
+  skip_before_action :authorize 
   
   def yelp_search(place, location)
     params = { term: place,
@@ -19,7 +20,23 @@ class YelpController < ApplicationController
     yelpCount: params[:yelp_save_count], yelpRating: params[:yelp_save_rating], yelpSnippet: params[:yelp_save_snippet], yelpAddress: params[:yelp_save_address], yelpCity: params[:yelp_save_city],
     yelpState: params[:yelp_save_state], yelpPostal: params[:yelp_save_postal], yelpUrl: params[:yelp_url]); 
     
-    end 
+  end
+  
+  # Delete place from Trip 
+  def delete 
+    trip = session[:yelp]
+    session[:yelp] = nil
+    trip = trip.split(",") 
+    trip.delete_at(params[:counter].to_i)
+    trip.each do |trips|
+      if session[:yelp] == nil
+        session[:yelp] = trips
+      else 
+        session[:yelp] += "," + trips 
+      end
+    end
+    redirect_to trips_itinerary_path
+  end   
 
 end 
     

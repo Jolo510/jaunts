@@ -4,7 +4,8 @@ class SessionsController < ApplicationController
   def create
     user = User.from_omniauth(env["omniauth.auth"])
     session[:user_id] = user.id 
-    redirect_to root_url 
+    # Redirects to trips page after Logging in
+    redirect_to trips_itinerary_url 
   end
   
   def destroy

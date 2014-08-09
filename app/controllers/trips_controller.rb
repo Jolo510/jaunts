@@ -49,22 +49,6 @@ class TripsController < ApplicationController
     end 
   end
   
-  # Delete place from Trip 
-  def delete 
-    trip = session[:yelp]
-    session[:yelp] = nil
-    trip = trip.split(",") 
-    trip.delete_at(params[:counter].to_i)
-    trip.each do |trips|
-      if session[:yelp] == nil
-        session[:yelp] = trips
-      else 
-        session[:yelp] += "," + trips 
-      end
-    end
-    redirect_to trips_itinerary_path
-  end
-  
   # Splitting the Cookies 
   def display_results
     yelp_id = session[:yelp].split(",")
