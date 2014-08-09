@@ -28,7 +28,7 @@
 	  <% if yelp_ids != nil %>
 	    <% yelp_ids = yelp_ids.split(",")%>
 	    <% count = 0 %>
-        <div class="row">
+        <div class="row" style="color:black;">
 		     <% yelp_ids.each do |yelp| %>
 		       <% bus = Business.find_by yelp_id: yelp %>
 	             <div class="col-sm-6 col-md-4 col-lg-3">
