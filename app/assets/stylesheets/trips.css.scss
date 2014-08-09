@@ -15,10 +15,18 @@ body {
 }
 
 #save-form, #cool-button{
-  background:none;border:solid;border-color:#00628B;color:#00628B;font-weight:bold;
+  background:none;
+  border:solid;
+  border-color:#00628B;
+  color:#00628B;
+  font-weight:bold;
 }
 
 #paragraph {
+  padding-left:50px; 
+  padding-right:50px;
+  font-family: "Sans-serif";
   font-size: 15px; 
+  color: black; 
 }
 
