@@ -9,4 +9,11 @@
   padding-right: 20px; 
 }
 
-
+.footer {
+  position: absolute;
+  bottom: 0px;
+  width: 92.5%;
+  /* Set the fixed height of the footer here */
+  height: 60px;
+  background-color: #E6EFF3;
+}

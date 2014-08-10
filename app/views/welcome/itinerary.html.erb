@@ -15,9 +15,10 @@
 	});
   </script>
 		
-  <body>
+  <body class="trip-body">
     <!-- Rendering the navigation bar -->
     <%= render partial: 'layouts/navbar' %>
+  <div class="container">
   <div class='page-title'>
     Creating a Jaunt
   </div>
@@ -108,7 +109,8 @@
     	  </div>
   		</div>
 	  </div>
-
-
-	</body>	
+    </div>
+	</body>
+	<!-- Render the footer -->
+    <%= render partial: 'layouts/footer' %>	
 </html>

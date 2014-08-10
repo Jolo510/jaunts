@@ -11,10 +11,23 @@
  *= require_self
  *= require_tree .
  */
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+
 body {
   padding-top: 50px;
   padding-bottom: 20px;
+  padding-left: 50px; 
+  padding-right: 50px;  
+  
   background-color: #E6E6DC;
+  
+  /* Margin bottom by footer height */
+  margin-bottom: 60px;
 }
 
 .page-title {
@@ -28,6 +41,7 @@ body {
 .page-body {
   font-family: "Sans-serif";
 }
+
 
 
  
