@@ -1,23 +1,22 @@
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
   	
   </head>
   
-  <body id="display-body">
+  <body >
   	<!-- Rendering the navigation bar -->
   	<%= render partial: 'layouts/navbar' %>
     <div class="page-title">
       Login First! 
     </div>
     <br>
-    <hr> 
     <div id="paragraph">
       In order to save Jaunts or view saved Jaunts you have to be signed in through Facebook! <br> 
       Click the button below to login to Facebook! <br> <br> 
       <%= button_to "Sign in with Facebook", "/auth/facebook", id: "cool-button" %>
     </div>
   </body>
-  
+  <!-- Rendering the footer -->
+  <%= render partial: 'layouts/footer' %>
 </html>

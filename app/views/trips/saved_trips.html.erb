@@ -20,7 +20,8 @@
       	  	<div class="caption">
       		  <h3><%= trip.name %></h3>
       		  
-			  <p><%= trip.description %></p>
+			  <p><%= trip.description %></p><br>
+			  <p><b>List of the locations</b></p>
 			  <% yelp = trip.json %>
 			  <% yelp = yelp.split(",") %>
 			  <% yelp.each do |yelp| %>
