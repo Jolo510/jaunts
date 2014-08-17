@@ -7,7 +7,6 @@
 }
 
 .top {
-
   top: 60px; 
   padding-left: 200px;  
 }
@@ -35,9 +34,23 @@
   margin-left: -300px;
 }
 
-img{
-  margin-left: 25px; 
-  margin-right: 25px; 
+/* Used in the intinerary page to make the remove button stay in the right corner */ 
+.right-corner {
+  position:absolute;
+  bottom:35px;
+  right:35px;
+  margin:0;
+
+}
+
+.display-image {
+  margin-left: 15px; 
+
+}
+
+
+img {
+
   
 }
 
