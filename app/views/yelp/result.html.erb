@@ -5,8 +5,10 @@
   <body>
   	<!-- Rendering the navigation bar -->
   	<%= render partial: 'layouts/navbar' %>
-    <h1>Results Page </h1>
-    <br><hr>
+    <div class="page-title">
+    	Results 
+    </div>
+    <br>
 	<% yelpObj = YelpController.new %>
 	<% results = yelpObj.yelp_search(params['place'], params['location']) %>
 	  
