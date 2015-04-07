@@ -26,14 +26,11 @@
       <div class="page-body">
         <%= form_tag("/yelp/result", method: "get", :id => "search-form") do %>
 	      <%= label_tag(:place, "Find") %>
-	      <%= text_field_tag(:place, nil,  required: true) %>
+	      <%= text_field_tag(:place, 'Food', :onclick => 'if($(this).val()=="Food"){$(this).val("");};',  required: true) %>
 	      <%= label_tag(:location, "Near") %>
-	      <%= text_field_tag(:location, nil,  required: true) %>
+	      <%= text_field_tag(:location, 'San Francisco', :onclick => 'if($(this).val()=="San Francisco"){$(this).val("");};',  required: true) %>
 	      <%= submit_tag ("Search"), :class => "btn btn-default btn-sm", :id => "cool-button" %>
         <% end %> 	
-      </div>
-      <div>
-      	<p>eg. <b>Find </b>Food  <b>Near </b>San Francisco </p>
       </div>
     </div>
   </body>
